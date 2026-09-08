@@ -1,5 +1,5 @@
 ---
-name: rpo-ai-lab-exposure
+name: find_ai_exposure_mentions_skills
 description: "Produces a sourced research note on a company's Remaining Performance Obligation (RPO) backlog and its concentration in private AI labs (OpenAI, Anthropic, and peers) by cross-referencing SEC filings with earnings-call transcripts via the Pronto MCP. Use for RPO disclosure analysis, backlog concentration, and AI-lab counterparty exposure at hyperscalers and cloud vendors. Triggers: RPO exposure, RPO concentration, remaining performance obligation, OpenAI backlog, Anthropic backlog, AI lab exposure, backlog footnote analysis."
 ---
 
