@@ -11,6 +11,12 @@ For a given company and fiscal quarter, pair the SEC-filed RPO balance with earn
 
 **Framing to state in every note:** RPO is a *leading indicator* of contracted backlog, not recognized revenue. Concentration figures are frequently analyst-derived from disclosed contract values divided by total RPO — never present a derived figure as a company disclosure.
 
+## Output Style (mandatory)
+
+- Do not write an opening framing paragraph or a closing summary paragraph. No "Summary." lead-in, no "Read-through" narrative wrap-up.
+- The comparability caveat and any coverage gaps are conveyed via the chart footnote and a short bulleted `Notes` block — not a prose essay.
+- Allowed prose: section headers, table/column headers, terse (<1 line) bullets in `Notes`, and STOP checkpoints. Nothing else.
+
 ## Inputs
 
 | Input | Description | Example |
@@ -140,12 +146,6 @@ A note containing an uncited or non-rendering sourced fact is incomplete and mus
 ## Output template
 
 ```
-# <Company> — RPO Disclosure & Private AI-Lab Exposure
-### <Quarter>
-
-**Summary.** <RPO balance + inline link>; <lab> ≈ $<X>B (<Y>%) of backlog.
-RPO is contracted backlog, not recognized revenue.
-
 ## 1. Filed RPO balance (SEC filings)
 - Total and commercial RPO, weighted-average duration, 12-month recognition
   percentage, ASC 606 definition — each with its inline source link.
