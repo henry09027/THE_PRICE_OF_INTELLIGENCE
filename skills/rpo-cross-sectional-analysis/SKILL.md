@@ -11,7 +11,7 @@ For a peer set of cloud vendors / AI hyperscalers, retrieve each company's lates
 
 ## Output Style (mandatory)
 
-- **Tables and charts carry the analysis, not prose.** Do not write an opening framing paragraph or a closing summary paragraph. No "Summary." lead-in, no "Read-through" narrative wrap-up.
+- **Tables and charts carry the analysis, not prose.** Do not write an opening framing paragraph or a closing summary paragraph. No "Summary." lead-in, no "Read-through" narrative wrap-up. Keep the output concise and professional.
 - Every quantitative fact lives in a table cell or on the chart — never restated in sentences.
 - The comparability caveat and any coverage gaps are conveyed via the chart footnote and a short bulleted `Notes` block — not a prose essay.
 - Allowed prose: section headers, table/column headers, terse (<1 line) bullets in `Notes`, and STOP checkpoints. Nothing else.
