@@ -13,7 +13,6 @@ For a peer set of cloud vendors / AI hyperscalers, retrieve each company's lates
 
 - **Tables and charts carry the analysis, not prose.** Do not write an opening framing paragraph or a closing summary paragraph. No "Summary." lead-in, no "Read-through" narrative wrap-up.
 - Every quantitative fact lives in a table cell or on the chart — never restated in sentences.
-- **Citations go inside the tables**, in a dedicated `Source` column, as clickable `[MARKER](url)` links (see Citation rule). Do not scatter citations across body text.
 - The comparability caveat and any coverage gaps are conveyed via the chart footnote and a short bulleted `Notes` block — not a prose essay.
 - Allowed prose: section headers, table/column headers, terse (<1 line) bullets in `Notes`, and STOP checkpoints. Nothing else.
 
