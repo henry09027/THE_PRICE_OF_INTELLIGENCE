@@ -13,7 +13,7 @@ For a given company and fiscal quarter, pair the SEC-filed RPO balance with earn
 
 ## Output Style (mandatory)
 
-- Do not write an opening framing paragraph or a closing summary paragraph. No "Summary." lead-in, no "Read-through" narrative wrap-up.
+- Do not write an opening framing paragraph or a closing summary paragraph. No "Summary." lead-in, no "Read-through" narrative wrap-up. Keep the output concise and professional.
 - The comparability caveat and any coverage gaps are conveyed via the chart footnote and a short bulleted `Notes` block — not a prose essay.
 - Allowed prose: section headers, table/column headers, terse (<1 line) bullets in `Notes`, and STOP checkpoints. Nothing else.
 
