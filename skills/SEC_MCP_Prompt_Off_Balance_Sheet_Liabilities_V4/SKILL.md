@@ -229,8 +229,6 @@ After the report and CSV are built, produce a single cross-sectional comparison 
 
 **Rules:**
 - Feed ONLY freshly-extracted values. Pass `None` for any figure not disclosed / not aggregated — the function renders these as "n/d" (not disclosed), never `0` or an estimate.
-- Write the PNG under `/tmp` first, then copy it into `/workspace/`.
-- Surface the file with an `<asset>` tag pointing at the `/workspace/` path.
 - Source note on the figure must name the per-company filing basis (e.g. "Microsoft = FY2026 10-K; others = Q2 2026 / Q1 FY2027 10-Q") and credit the SEC filings / Pronto SEC corpus.
 
 ### Reusable function (`references/plot_hyper5_cross_section.py`)
@@ -367,7 +365,6 @@ if __name__ == "__main__":
 
 ## OUTPUT DELIVERABLES
 
-Write to `/workspace/hyper5/` (Office/zip formats to `/tmp` first, then copy; PNG/CSV/MD directly):
 1. `markdown_report.md` — full detailed report with all tables, a source-basis column, verbatim excerpts + markers, and caveats.
 2. `raw_data_table.csv` — key metrics per company incl. `Source_Basis` and computed `Total_OBS_Disclosed_B`.
 3. `summary_stats.txt` — executive totals, ranked leases, per-company filing basis, any revisions applied during cross-check, key observations.
@@ -400,8 +397,4 @@ Write to `/workspace/hyper5/` (Office/zip formats to `/tmp` first, then copy; PN
 - [ ] Contingent liabilities >$100M flagged
 - [ ] Summary totals correct; all figures in $B
 - [ ] Any figure not found marked "n/d" (never guessed or web-estimated)
-- [ ] Cross-sectional visualization generated with `None` for undisclosed figures (rendered "n/d", never 0), saved to `/workspace/`, and surfaced via `<asset>`
-
-## Output
-
-Present the ranked uncommenced-lease table and the disclosed grand total (with the apples-to-apples caveat), list the four deliverables via `<asset>` tags, and offer a recurring (quarterly, post-earnings) automation. Do NOT expose internal file paths or implementation details in the user-facing summary.
+- [ ] Cross-sectional visualization generated with `None` for undisclosed figures (rendered "n/d", never 0), saved to `//`, and surfaced via `<asset>`
