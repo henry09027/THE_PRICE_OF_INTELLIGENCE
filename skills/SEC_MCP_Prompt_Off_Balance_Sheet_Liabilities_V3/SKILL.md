@@ -637,6 +637,14 @@ if __name__ == "__main__":
 
 ---
 
+## CORRECTIONS LOG (learn from these — recurring pitfalls)
+
+1. **Microsoft leases $196.6B -> $329.1B.** First pass used the Q3 FY2026 10-Q (as of Mar 31, 2026) because it was the newest doc in the corpus. Microsoft's FY2026 10-K (as of Jun 30, 2026, filed Jul 30, 2026) had since been filed with $329.1B. **Lesson: always check for a newer 10-K near fiscal year-end; the corpus may lag.**
+2. **Amazon leases n/d -> $137.2B.** First pass marked Amazon's uncommenced leases as "not disclosed" (and an initial EDGAR cross-check wrongly confirmed that). The $137.2B aggregate IS in the Q2 2026 10-Q. **Lesson: verify an `n/d` against the actual filing text before concluding a figure is absent; corroborate with EDGAR + reputable press.**
+3. **El Paso ~$13B RVG belongs to Meta, not Alphabet.** The ~$13B residual value guarantee on the El Paso, Texas data-center venture is Meta's. **Lesson: guard against cross-company misattribution — tie every guarantee/RVG to the issuer whose filing discloses it.**
+
+---
+
 ## VERIFICATION CHECKLIST
 
 Before finalizing extraction, confirm:
