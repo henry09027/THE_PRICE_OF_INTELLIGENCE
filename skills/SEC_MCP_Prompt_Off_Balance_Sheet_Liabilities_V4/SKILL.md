@@ -13,7 +13,9 @@ Extract ALL off-balance-sheet commitments and contingencies from the Hyper 5's m
 3. Guarantees & Lease Backstops
 4. Contingent Liabilities
 
-Generate a markdown report with detailed tables for each category and each company, a raw-data CSV, a summary-stats file, AND a cross-sectional visualization of the Hyper 5. Every figure carries a source marker AND a source-basis note (which filing, filed when, corpus vs. SEC/EDGAR).
+Generate a markdown report with detailed tables for each category and each company, a raw-data CSV, a summary-stats block, AND a cross-sectional visualization of the Hyper 5. Every figure carries a source marker AND a source-basis note (which filing, filed when, corpus vs. SEC/EDGAR).
+
+**DISPLAY IN-SESSION ONLY — do NOT save to the workspace.** Every deliverable (report, CSV, summary stats, and the chart) is rendered directly in the chat session for the user to read/copy. Do NOT write deliverables to `/workspace/`, do NOT emit `<asset>` tags, and do NOT tell the user a file was saved. The markdown report and its tables are printed inline; the CSV and summary-stats are printed as fenced code blocks the user can copy; the chart is shown in-session (see Part 3). The sandbox `/tmp` may still be used purely as scratch space to render the chart image, but nothing is persisted to the workspace.
 
 **This skill stores NO figures.** All values are pulled live from primary filings at extraction time because they roll forward every quarter.
 
@@ -216,7 +218,7 @@ Populate strictly from freshly-extracted figures — no illustrative/carried-ove
 
 ## PART 2 OUTPUT: RAW DATA TABLE (CSV)
 
-One row per company. Include a `Source_Basis` column and computed `Total_OBS_Disclosed_B`. Column layout (example header only, not data):
+Print the CSV **in-session as a fenced ```csv code block** so the user can copy it — do NOT write it to the workspace. One row per company. Include a `Source_Basis` column and computed `Total_OBS_Disclosed_B`. Column layout (example header only, not data):
 ```csv
 Company,Leases_Undiscounted_B,Source_Basis,Lease_Asset_Type,Commencement_Start,Commencement_End,Lease_Terms_Years,Subsequent_Lease_Addition_B,Purchase_Commitments_B,Guarantees_B,Contingent_B,Total_OBS_Disclosed_B
 ```
@@ -225,13 +227,15 @@ Company,Leases_Undiscounted_B,Source_Basis,Lease_Asset_Type,Commencement_Start,C
 
 ## PART 3 OUTPUT: CROSS-SECTIONAL VISUALIZATION (MANDATORY)
 
-After the report and CSV are built, produce a single cross-sectional comparison figure using the extracted figures. Use `matplotlib` in the sandbox.
+After the report and CSV are built, produce a single cross-sectional comparison figure using the extracted figures. Use `matplotlib` in the sandbox, rendering the PNG to `/tmp` scratch space only.
+
+**Display the chart in-session — do NOT save it to the workspace and do NOT emit an `<asset>` tag.** Render the image to `/tmp/hyper5/hyper5_cross_section.png` purely as scratch, then surface it directly in the chat session so the user sees it inline. Nothing is persisted to `/workspace/`.
 
 **Rules:**
 - Feed ONLY freshly-extracted values. Pass `None` for any figure not disclosed / not aggregated — the function renders these as "n/d" (not disclosed), never `0` or an estimate.
 - Source note on the figure must name the per-company filing basis (e.g. "Microsoft = FY2026 10-K; others = Q2 2026 / Q1 FY2027 10-Q") and credit the SEC filings / Pronto SEC corpus.
 
-### Reusable function (`references/plot_hyper5_cross_section.py`)
+### Reusable function (inline — render to `/tmp` scratch, then display in-session)
 ```python
 import matplotlib
 matplotlib.use("Agg")
@@ -365,10 +369,12 @@ if __name__ == "__main__":
 
 ## OUTPUT DELIVERABLES
 
-1. `markdown_report.md` — full detailed report with all tables, a source-basis column, verbatim excerpts + markers, and caveats.
-2. `raw_data_table.csv` — key metrics per company incl. `Source_Basis` and computed `Total_OBS_Disclosed_B`.
-3. `summary_stats.txt` — executive totals, ranked leases, per-company filing basis, any revisions applied during cross-check, key observations.
-4. `hyper5_cross_section.png` — cross-sectional visualization (Part 3), surfaced via an `<asset>` tag.
+All four deliverables are **displayed in-session** — nothing is written to the workspace, and no `<asset>` tag is emitted.
+
+1. **Markdown report** — full detailed report with all tables, a source-basis column, verbatim excerpts + markers, and caveats. Printed inline in the chat.
+2. **Raw data table (CSV)** — key metrics per company incl. `Source_Basis` and computed `Total_OBS_Disclosed_B`. Printed in-session as a fenced ```csv code block the user can copy.
+3. **Summary stats** — executive totals, ranked leases, per-company filing basis, any revisions applied during cross-check, key observations. Printed in-session as a fenced code block.
+4. **Cross-sectional visualization** — rendered to `/tmp` scratch and shown in-session (Part 3). Not saved to the workspace.
 
 ---
 
@@ -397,4 +403,5 @@ if __name__ == "__main__":
 - [ ] Contingent liabilities >$100M flagged
 - [ ] Summary totals correct; all figures in $B
 - [ ] Any figure not found marked "n/d" (never guessed or web-estimated)
-- [ ] Cross-sectional visualization generated with `None` for undisclosed figures (rendered "n/d", never 0), saved to `//`, and surfaced via `<asset>`
+- [ ] Cross-sectional visualization generated with `None` for undisclosed figures (rendered "n/d", never 0), rendered to `/tmp` scratch, and displayed in-session (NOT saved to the workspace, NO `<asset>` tag)
+- [ ] All deliverables (report, CSV, summary, chart) shown in-session; nothing written to `/workspace/`
