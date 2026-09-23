@@ -367,6 +367,53 @@ if __name__ == "__main__":
 
 ---
 
+## KNOWN-GOOD REFERENCE DATASET (as of 2026-09-22)
+
+This is the validated dataset from the reference run. Use it to sanity-check a fresh extraction; DO NOT paste these as current without re-verifying — they roll forward each quarter. Each figure lists its source basis. See `references/hyper5_reference_data.md` for the full detail, verbatim excerpts, markers, and the two corrections that were applied.
+
+### Category 1 — Leases Not Yet Commenced (undiscounted), ranked
+| Rank | Company | Amount | Source basis | Commence | Terms |
+|------|---------|--------|--------------|----------|-------|
+| 1 | Microsoft | $329.1B | FY2026 10-K (as of 2026-06-30, filed 2026-07-30) | FY2027-FY2033 | 1-20 yr |
+| 2 | Oracle | $288.0B | Q1 FY2027 10-Q (as of 2026-08-31) | Q2 FY2027-FY2029 | 15-19 yr |
+| 3 | Meta | $278.99B (+$68B July subseq.) | Q2 2026 10-Q (as of 2026-06-30) | 2026-2036 | >1-30 yr |
+| 4 | Amazon | $137.2B | Q2 2026 10-Q (as of 2026-06-30) | n/d | n/d |
+| 5 | Alphabet | $85.2B (+$5.8B June subseq.) | Q2 2026 10-Q (as of 2026-06-30) | 2026-2031 | 1-26 yr |
+| — | **Total** | **$1,118.49B (~$1.12T)** | mixed | — | — |
+Total incl. subsequent additions: ~$1.19T (consistent with ~$1.09T independent press tallies).
+
+### Category 2 — Purchase Commitments
+| Company | Amount | Notes | Source basis |
+|---------|--------|-------|--------------|
+| Alphabet | $811.0B | material purchase commitments & other obligations ($200.7B short-term; $707.0B fixed/guaranteed) | Q2 2026 10-Q |
+| Amazon | ~$496.0B | long-term (>1 yr) contractual commitments not yet recognized; open POs largely cancellable | Q2 2026 10-Q |
+| Meta | $349.31B | non-cancelable commitments (+$14.72B contingent cloud-capacity over 5 yr) | Q2 2026 10-Q |
+| Oracle | $34.15B | unconditional purchase & other obligations >=1 yr | Q1 FY2027 10-Q |
+| Microsoft | n/d | not separately aggregated; refer to 10-K commitments note | FY2026 10-K |
+
+### Category 3 — Guarantees & Backstops
+| Company | Amount | Notes | Source basis |
+|---------|--------|-------|--------------|
+| Alphabet | $51.4B | $7.6B financial guarantees + $43.8B credit derivatives (data-center backstops) | Q2 2026 10-Q |
+| Meta | ~$41.0B | ~$28B RVG aggregate threshold (decreasing) + ~$13B El Paso venture RVG | Q2 2026 10-Q |
+| Oracle / Amazon / Microsoft | n/d | not quantified (Amazon A-to-z Guarantee unquantified) | — |
+
+### Category 4 — Contingent Liabilities (quantified)
+| Company | Amount | Notes | Source basis |
+|---------|--------|-------|--------------|
+| Meta | $7.14B | uncertain tax positions; + EUR 1.2B IDPC GDPR fine (under appeal) | Q2 2026 10-Q |
+| Amazon | $7.1B | income tax contingencies (excluded from commitments table) | Q2 2026 10-Q |
+| Alphabet / Oracle / Microsoft | n/d amt | legal/tax contingencies referenced, not separately quantified | — |
+
+### Grand totals (disclosed only; NOT apples-to-apples due to n/d gaps)
+- Leases not yet commenced (5 co.): $1,118.49B (+$73.8B subseq.)
+- Purchase commitments (4 co.): ~$1,690.46B
+- Guarantees/backstops (2 co.): $92.4B
+- Contingent (2 co. quantified): $14.24B
+- **TOTAL DISCLOSED OFF-BALANCE-SHEET: ~$2.99 TRILLION**
+
+---
+
 ## OUTPUT DELIVERABLES
 
 All four deliverables are **displayed in-session** — nothing is written to the workspace, and no `<asset>` tag is emitted.
